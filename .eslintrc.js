@@ -1,4 +1,8 @@
 module.exports = {
+  env: {
+    es6: true,
+    browser: true,
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -6,7 +10,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['import', 'import-helpers'],
+  plugins: ['import-helpers'],
   rules: {
     'import-helpers/order-imports': [
       'warn',
