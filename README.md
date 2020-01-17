@@ -4,6 +4,12 @@ Terceiro dia da semana omnistack.
 Desenvolvemos uma aplicação WEB DevRadar ReactJS, consumindo a API REST (back-end) desenvolvida no segundo dia.
 Conceito de Componentização, propriedades, estados e refatoração foram abordados nesse projeto.
 
+### Link do GitHub Back-end:
+
+[Aplicação Back-end https://github.com/remulocosta/backend-OmniStack1](https://github.com/remulocosta/backend-OmniStack10)
+
+--
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
