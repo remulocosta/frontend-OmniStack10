@@ -3,7 +3,7 @@ import { FaGithub, FaEdit, FaTrashAlt } from 'react-icons/fa';
 
 import './styles.css';
 
-function DevItem({ dev }) {
+function DevItem({ dev, deleteDev }) {
   return (
     <li className="dev-item">
       <header>
@@ -22,7 +22,7 @@ function DevItem({ dev }) {
           <button>
             <FaEdit color="#FFF" size={16} />
           </button>
-          <button>
+          <button className="btn-remove" onClick={() => deleteDev(dev)}>
             <FaTrashAlt color="#FFF" size={16} />
           </button>
         </div>

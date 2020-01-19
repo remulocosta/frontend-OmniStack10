@@ -98,3 +98,11 @@ li.dev-item a:hover {
 .footer-item button:hover {
   background: #6931ca;
 }
+
+.btn-remove {
+  background: #f7002e !important;
+}
+
+.btn-remove:hover {
+  background: #e2022b !important;
+}
