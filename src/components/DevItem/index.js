@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaGithub, FaEdit, FaTrashAlt } from 'react-icons/fa';
 
 import './styles.css';
 
@@ -13,9 +14,19 @@ function DevItem({ dev }) {
         </div>
       </header>
       <p>{dev.bio}</p>
-      <a href={`https://github.com/${dev.github_username}`}>
-        Acessar perfil no Github
-      </a>
+      <div className="footer-item">
+        <a href={`https://github.com/${dev.github_username}`}>
+          <FaGithub color="#FFF" size={18} />
+        </a>
+        <div>
+          <button>
+            <FaEdit color="#FFF" size={16} />
+          </button>
+          <button>
+            <FaTrashAlt color="#FFF" size={16} />
+          </button>
+        </div>
+      </div>
     </li>
   );
 }
