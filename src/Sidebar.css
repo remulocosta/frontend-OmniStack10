@@ -48,11 +48,13 @@ aside form .input-block input {
   border-bottom: 1px solid #eee;
 }
 
-aside form button[type='submit'] {
+.formfooter {
   width: 100%;
+}
+
+aside form button {
   border: 0;
   margin-top: 30px;
-  background: #7d40ef;
   border-radius: 2px;
   padding: 15px 20px;
   font-size: 16px;
@@ -62,6 +64,28 @@ aside form button[type='submit'] {
   transition: background 0.4s;
 }
 
-aside form button[type='submit']:hover {
+.btn-postcad {
+  width: 100%;
+  background: #7d40ef;
+}
+
+.btn-postcad:hover {
   background: #6931ca;
+}
+
+.btn-post {
+  background: #7d40ef;
+  width: 50%;
+}
+
+.btn-post:hover {
+  background: #6931ca;
+}
+.btn-cancel {
+  width: 50%;
+  background: #837d8f;
+}
+
+.btn-cancel:hover {
+  background: #6b627a;
 }

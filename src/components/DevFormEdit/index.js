@@ -1,54 +1,57 @@
 import React, { useState, useEffect } from 'react';
 
-function DevForm({ onSubmit }) {
+function DevForm({ dev, onSubmit, cancelDev }) {
   const [github_username, setgithubUserName] = useState('');
+  const [name, setName] = useState('');
   const [techs, setTechs] = useState('');
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const { latitude, longitude } = position.coords;
-
-        setLatitude(latitude);
-        setLongitude(longitude);
-      },
-      err => {
-        console.log(err);
-      },
-      {
-        timeout: 4000,
-      }
-    );
-  }, []);
+    if (dev) {
+      setgithubUserName(dev.github_username);
+      setName(dev.name);
+      setTechs(dev.techs.join(', '));
+      setLatitude(dev.location.coordinates[1]);
+      setLongitude(dev.location.coordinates[0]);
+    }
+  }, [dev]);
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     await onSubmit({
+      id: dev._id,
       github_username,
+      name,
       techs,
       latitude: Number(latitude),
       longitude: Number(longitude),
     });
-
-    setgithubUserName('');
-    setTechs('');
   }
 
   return (
     <>
-      <strong>Cadastro</strong>
+      <strong>Edição</strong>
       <form onSubmit={handleSubmit}>
         <div className="input-block">
           <label htmlFor="github_username">Usuário do Github</label>
           <input
             name="github_username"
             id="github_username"
-            required
+            readOnly
             value={github_username}
             onChange={e => setgithubUserName(e.target.value)}
+          />
+        </div>
+
+        <div className="input-block">
+          <label htmlFor="name">Nome</label>
+          <input
+            name="name"
+            id="name"
+            value={name}
+            onChange={e => setName(e.target.value)}
           />
         </div>
 
@@ -90,10 +93,14 @@ function DevForm({ onSubmit }) {
             />
           </div>
         </div>
-
-        <button type="submit" className="btn-postcad">
-          Salvar
-        </button>
+        <div className="formfooter">
+          <button type="button" className="btn-cancel" onClick={cancelDev}>
+            Cancelar
+          </button>
+          <button type="submit" className="btn-post">
+            Salvar
+          </button>
+        </div>
       </form>
     </>
   );
